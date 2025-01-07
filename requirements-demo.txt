@@ -1,0 +1,4 @@
+gradio==4.43.0
+gradio-litmodel3d==0.0.1
+gradio-pointcloudeditor==0.0.9
+opencv-python==4.10.0.84

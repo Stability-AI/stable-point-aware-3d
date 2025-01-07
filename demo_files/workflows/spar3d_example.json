@@ -1,0 +1,263 @@
+{
+  "last_node_id": 17,
+  "last_link_id": 18,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "SPAR3DLoader",
+      "pos": [
+        52.92446517944336,
+        394.328369140625
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "spar3d_model",
+          "type": "SPAR3D_MODEL",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SPAR3DLoader"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 13,
+      "type": "LoadImage",
+      "pos": [
+        -43.437347412109375,
+        482.89678955078125
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            16
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "cat1.png",
+        "image"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "InvertMask",
+      "pos": [
+        377.1180419921875,
+        605.384765625
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "SPAR3DSave",
+      "pos": [
+        1133.669921875,
+        439.6551513671875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 18
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SPAR3DSave"
+      },
+      "widgets_values": [
+        "SPAR3D"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "SPAR3DSampler",
+      "pos": [
+        673.0637817382812,
+        441.2229309082031
+      ],
+      "size": [
+        315,
+        286
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "SPAR3D_MODEL",
+          "link": 10
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 17,
+          "shape": 7
+        },
+        {
+          "name": "pointcloud",
+          "type": "POINTCLOUD",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "links": [
+            18
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "pointcloud",
+          "type": "POINTCLOUD",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SPAR3DSampler"
+      },
+      "widgets_values": [
+        1.3,
+        1024,
+        "none",
+        1000,
+        3,
+        3727502160,
+        "randomize",
+        "none"
+      ]
+    }
+  ],
+  "links": [
+    [
+      10,
+      10,
+      0,
+      11,
+      0,
+      "SPAR3D_MODEL"
+    ],
+    [
+      11,
+      13,
+      0,
+      11,
+      1,
+      "IMAGE"
+    ],
+    [
+      16,
+      13,
+      1,
+      16,
+      0,
+      "MASK"
+    ],
+    [
+      17,
+      16,
+      0,
+      11,
+      2,
+      "MASK"
+    ],
+    [
+      18,
+      11,
+      0,
+      17,
+      0,
+      "MESH"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.953502721998243,
+      "offset": [
+        266.21995970220667,
+        116.75398112171928
+      ]
+    }
+  },
+  "version": 0.4
+}
