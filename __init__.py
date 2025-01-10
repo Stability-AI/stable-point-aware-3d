@@ -19,7 +19,7 @@ from spar3d.system import SPAR3D
 from spar3d.utils import foreground_crop
 
 SPAR3D_CATEGORY = "SPAR3D"
-SPAR3D_MODEL_NAME = "stabilityai/spar3d"
+SPAR3D_MODEL_NAME = os.getenv("SPAR3D_MODEL_NAME", "stabilityai/stable-fast-3d")
 
 
 class SPAR3DLoader:
