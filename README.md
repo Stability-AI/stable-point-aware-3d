@@ -62,7 +62,7 @@ Support is only available for OSX 15.2 (Sequoia) and above.
 
 Note that support is **experimental** and not guaranteed to give the same performance and/or quality as the CUDA backend.
 
-MPS backend support was tested on M4 max 36GB with the latest PyTorch release and OSX 15.2 (Sequoia). We recommend you install the latest PyTorch (2.5.1 as of writing) and/or the nightly version to avoid any issues that my arise with older PyTorch versions.
+MPS backend support was tested on M4 max 36GB with the latest PyTorch release and OSX 15.2 (Sequoia). We recommend you install the latest PyTorch (2.5.1 as of writing) and/or the nightly version to avoid any issues that may arise with older PyTorch versions.
 
 You also need to run the code with `PYTORCH_ENABLE_MPS_FALLBACK=1`.
 
@@ -79,7 +79,7 @@ If you have a GPU but are facing issues and want to use the CPU backend instead,
 ```sh
 python run.py demo_files/examples/fish.png --output-dir output/
 ```
-This will save the reconstructed 3D model as a GLB file to `output/`. You can also specify more than one image path separated by spaces. The default options takes about **6GB VRAM** for a single image input.
+This will save the reconstructed 3D model as a GLB file to `output/`. You can also specify more than one image path separated by spaces. The default options take about **6GB VRAM** for a single image input.
 
 You may also use `--texture-resolution` to specify the resolution in pixels of the output texture and `--remesh_option` to specify the remeshing operation (None, Triangle, Quad).
 
@@ -118,9 +118,9 @@ To install:
 
   -`none`: mesh unchanged after generation. No CPU overhead.
 
-  -`triangle`: verticies and edges are rearranged to form a triangle topography. Implementation is from: *"[A Remeshing Approach to Multiresolution Modeling](https://github.com/sgsellan/botsch-kobbelt-remesher-libigl)" by M. Botsch and L. Kobbelt*. CPU overhead expected.
+  -`triangle`: vertices and edges are rearranged to form a triangle topography. Implementation is from: *"[A Remeshing Approach to Multiresolution Modeling](https://github.com/sgsellan/botsch-kobbelt-remesher-libigl)" by M. Botsch and L. Kobbelt*. CPU overhead expected.
 
-  -`quad`: verticies and edges are rearanged in quadrilateral topography with a proper quad flow. The quad mesh is split into triangles for export with GLB. Implementation is from *"[Instant Field-Aligned Meshes](https://github.com/wjakob/instant-meshes)" from Jakob et al.*. CPU overhead expected.
+  -`quad`: verticies and edges are rearranged in quadrilateral topography with a proper quad flow. The quad mesh is split into triangles for export with GLB. Implementation is from *"[Instant Field-Aligned Meshes](https://github.com/wjakob/instant-meshes)" from Jakob et al.*. CPU overhead expected.
 
 Additionally the target vertex or face count can be specified. This is not a hard constraint but a rough count the method aims to create. This target is ignored if the remesher is set to `none`.
 
